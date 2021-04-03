@@ -9,7 +9,7 @@ class Die extends Component {
 
         // Displaying a die with updated side
         return(
-            <div className = "Die">
+            <div className =  {`Die ${this.props.rolling ? 'wobbling' : ''}`}>
                 <i className = {dieDisplay}></i>
             </div>
         )
