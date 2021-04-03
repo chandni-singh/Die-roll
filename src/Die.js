@@ -1,17 +1,15 @@
 import  React, {Component} from 'react';
+import './Die.css'
 
 class Die extends Component {
 
     render() {
-        let baseClass = "fas fa-dice-";
 
-        let die1Display = `${baseClass}${this.props.display1}`;
-        let die2Display = `${baseClass}${this.props.display2}`;
+        let dieDisplay = `fas fa-dice-${this.props.display}`;
 
         return(
             <div className = "Die">
-                <i className = {die1Display}></i>
-                <i className = {die2Display}></i>
+                <i className = {dieDisplay}></i>
             </div>
         )
     }

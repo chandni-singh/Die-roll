@@ -1,35 +1,37 @@
 import React, {Component} from 'react';
 import Die from './Die';
 
-const dieVal = ['one', 'two', 'three', 'four', 'five' , 'six'];
-
 class RollDice extends Component {
+    // Constructor function and state initializtaion
     constructor(props) {
         super(props);
         this.state = { die1 : 'one', die2 : 'one'};
         this.roll = this.roll.bind(this);
     }
 
+    // default props
     static defaultProps = {
-        dieVal:
+        dieSides:
         ['one', 'two', 'three', 'four', 'five' , 'six']
     }
 
+    // generating random die sides using default props and updating state
     roll() {
-        let randIdx1 = Math.floor(Math.random() * dieVal.length);
-        let randIdx2 = Math.floor(Math.random() * dieVal.length);
+        let randIdx1 = Math.floor(Math.random() * this.props.dieSides.length);
+        let randIdx2 = Math.floor(Math.random() * this.props.dieSides.length);
 
-        this.setState({ die1 : dieVal[randIdx1], die2 : dieVal[randIdx2]});
+        this.setState({ die1 : this.props.dieSides[randIdx1], die2 : this.props.dieSides[randIdx2]});
     }
 
+    // passing updated die side
     render() {
         return(
-            <div>
-                <div className = "RollDice-dice">
-                    <Die display1 = {this.state.die1} display2 = {this.state.die2} />
-                </div>
-                
-                <button onClick = {this.roll} className = "RollDice-button">RollDice!</button>
+            <div className = "RollDice">
+                    <Die display = {this.state.die1} />
+                    <Die display = {this.state.die2} />
+
+                    {/* Handling button click */}
+                    <button onClick = {this.roll} className = "RollDice-button">Roll Dice!</button>
             </div>
         )
     }

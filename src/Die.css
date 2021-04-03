@@ -1,5 +1,8 @@
+.Die {
+    display : inline-block;
+}
 
-.Die i {
+i {
     color : purple;
-    background-color: purple;
+    margin : 5px;
 }
