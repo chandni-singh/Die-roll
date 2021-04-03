@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Die from './Die';
+import './RollDice.css';
 
 class RollDice extends Component {
     // Constructor function and state initializtaion
@@ -27,11 +28,13 @@ class RollDice extends Component {
     render() {
         return(
             <div className = "RollDice">
+                <div className = "RollDice-container">
                     <Die display = {this.state.die1} />
                     <Die display = {this.state.die2} />
+                </div>
 
-                    {/* Handling button click */}
-                    <button onClick = {this.roll} className = "RollDice-button">Roll Dice!</button>
+                {/* Handling button click */}
+                <button onClick = {this.roll} className = "RollDice-button">Roll Dice!</button>
             </div>
         )
     }
